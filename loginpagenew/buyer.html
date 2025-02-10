@@ -1,0 +1,271 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Seller Registration</h1>
+    </header>
+    <form>
+         Form fields for seller registration 
+    </form>
+</body>
+</html>
+-->
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Seller Registration</h1>
+    </header>
+    <div class="filter-section">
+        <label for="filter">Filter by Category</label>
+        <select id="filter">
+            <option value="">--Select Category--</option>
+        </select>
+        <input type="text" id="searchBar" placeholder="Search by Buyer Name">
+        <button id="searchButton">Search</button>
+    </div>
+    <div id="buyerList">
+         Dynamically populated list of buyers 
+    </div>
+    <script src="seller.js"></script>
+</body>
+</html>
+-->
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Buyer Registration</h1>
+    </header>
+    <form id="buyerForm">
+        <div class="form-group">
+           <form method="Post" name="buyer"> </form>
+            <label for="buyerName">Name:</label>
+            <input type="text" id="buyerName" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="buyerPlace">Place:</label>
+            <input type="text" id="buyerPlace" placeholder="Enter your place" required>
+        </div>
+        <div class="form-group">
+            <label for="buyerContact">Contact No:</label>
+            <input type="text" id="buyerContact" placeholder="Enter your contact number" required>
+        </div>
+        <div class="form-group">
+            <label for="buyerEmailid">Emailid:</label>
+            <input type="varchar" id="buyerEmailid" placeholder="Enter your Emailid" required>
+
+        </div>
+        <div class="form-group">
+            <label for="buyerCategory">Category of Item:</label>
+            <input type="text" id="buyerCategory" placeholder="Category of the item" required>
+        </div>
+        <div class="form-group">
+            <label for="buyerPrice">Range for purchasing product:</label>
+            <input type="number" id="buyerPrice" placeholder="Enter the price" required>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+    
+         Additional form fields for seller registration (if required) 
+        
+    </form>
+    <button id="backToWelcomeSeller">Back to Welcome Page</button>
+    <script>
+        // Redirect back to Welcome Page
+        document.getElementById('backToWelcomeSeller').addEventListener('click', () => {
+            window.location.href = 'welcome.html';
+        });
+
+        // Filter and Search Logic (Dynamic)
+        document.getElementById('searchButton').addEventListener('click', () => {
+            const filterValue = document.getElementById('sellerFilter').value;
+            const searchValue = document.getElementById('sellerSearch').value.trim().toLowerCase();
+
+            // Placeholder dynamic logic for filtering
+            console.log(`Filter: ${filterValue}, Search: ${searchValue}`);
+            alert(`Filtering seller by ${filterValue} and searching for "${searchValue}"`);
+        });
+    </script>
+
+    
+</body>
+</html>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz2vnQPZWO-BJyruhO2t0bm78JOzsx77S4_gFzvzUfM0bFlXCd52-EdvGszmLzfE1dE/exec'
+    const form = document.forms['buyer']
+    form.addEventListener('submit', e => {
+    e.preventDefault ()
+    fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+    .then(response => alert("I will revert you back"))
+    .catch(error => console.error('Error', error.message))
+    })
+  </script>
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <header>
+            <h1>Buyer Registration</h1>
+        </header>
+        <form id="buyerForm" name="buyer">
+            <div class="form-group">
+                <label for="buyerName">Name:</label>
+                <input type="text" id="buyerName" name="Name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="buyerPlace">Location:</label>
+                <input type="text" id="buyerPlace" name="Place" placeholder="Enter your place" required>
+            </div>
+            <div class="form-group">
+                <label for="buyerContact">Contact Number:</label>
+                <input type="text" id="buyerContact" name="Contact" placeholder="Enter your contact number" required>
+            </div>
+            <div class="form-group">
+                <label for="buyerEmailid">Email ID:</label>
+                <input type="email" id="buyerEmailid" name="Email" placeholder="Enter your Email ID" required>
+            </div>
+            <div class="form-group">
+                <label for="buyerCategory">Product Name:</label>
+                <input type="text" id="buyerCategory" name="Category" placeholder="Category of the item" required>
+            </div>
+            <div class="form-group">
+                <label for="buyerPrice">Range for Purchasing Product:</label>
+                <input type="number" id="buyerPrice" name="Price" placeholder="Enter the price range" required>
+            </div>
+            <button type="submit">Register</button>
+            <p id="responseMessage" class="message"></p>
+        </form>
+        <a href="welcome.html" class="back-link">Back to Welcome Page</a>
+    </div>
+    <script>
+         // Redirect back to Welcome Page
+         document.querySelector('.back-link').addEventListener('click', () => {
+            window.location.href = 'welcome.html';
+        });
+
+        // Google Apps Script URL
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwMUla_8TZ1JDkTYrGrS6hSvj3zea5s2mGo-AmEiy4ymIkCg7hcU7ierJHDFQosW4qaXg/exec';
+        const form = document.forms['buyer'];
+        const responseMessage = document.getElementById('responseMessage');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            responseMessage.textContent = 'Submitting your data...';
+            responseMessage.classList.remove('success', 'error');
+            
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then((response) => {
+                    responseMessage.textContent = 'Registration Successful! .';
+                    responseMessage.classList.add('success');
+                    form.reset(); // Clear the form after submission
+                })
+                .catch((error) => {
+                    responseMessage.textContent = 'Error! Unable to submit data.';
+                    responseMessage.classList.add('error');
+                });
+        });
+    </script>
+</body>
+</html>
